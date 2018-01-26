@@ -7,13 +7,12 @@ package Calculadora;
 
 /**
  *
- * @author anahernandez
+ * @author Ana Lucía Hernández 17138. Luis Delgado 17187.
  */
-public interface Calculadora<E>{
-    public int operar(String expresion);
-    
-    
-    public void push(E item);
+public interface stack<E> 
+{
+
+   public void push(E item);
    // pre: 
    // post: item is added to stack
    // will be popped next if no intervening push
@@ -31,4 +30,5 @@ public interface Calculadora<E>{
    
    public int size();
    // post: returns the number of elements in the stack
+
 }

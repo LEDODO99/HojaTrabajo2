@@ -9,16 +9,6 @@ package Calculadora;
  *
  * @author Ana Lucía Hernández 17138. Luis Delgado 17187.
  */
-public class Calculos implements calculadora{
+public class Principal {
     
-    public Calculos()
-    {
-        StackVector<Double> sv = new StackVector<>();
-    }
-    @Override
-    public double operar(String expresion)
-    {
-        double num =0.0;
-        return num;
-    }
 }
