@@ -10,5 +10,6 @@ package Calculadora;
  * @author Ana Lucía Hernández 17138. Luis Delgado 17187.
  */
 public interface calculadora<E>{
+    
     public double operar(String expresion);
 }
