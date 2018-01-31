@@ -11,5 +11,4 @@ package Calculadora;
  */
 public interface calculadora<E>{
     public double operar(String expresion);
-    
 }

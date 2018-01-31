@@ -5,18 +5,19 @@
  */
 package Calculadora;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  *
  * @author Ana Lucía Hernández 17138. Luis Delgado 17187.
  */
 public class StackVector<E> implements stack<E>{
-    private ArrayList<E> data;
+    private Vector<E> data;
 
     public StackVector()
     // post: constructs a new, empty stack
     {
-        data = new ArrayList<E>();
+        data = new Vector<>();
     }
 
     @Override
