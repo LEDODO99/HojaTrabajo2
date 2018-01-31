@@ -1,31 +1,49 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Calculadora;
-
-import java.util.ArrayList;
+﻿package Calculadora;
 
 /**
  *
  * @author Ana Lucía Hernández 17138. Luis Delgado 17187.
  */
 public class Calculos implements calculadora{
-    StackVector<Double> sv;
-    ArrayList<String> ex;
+    private StackVector<Double> sv;
     
     public Calculos()
     {
         sv = new StackVector<>();
-        ex = new ArrayList<>();
     }
     @Override
     public double operar(String expresion)
     {
-        int indice =0;
-        ex.add(expresion.substring(indice,expresion.indexOf(" ")+1));
-        indice+=1;
+        String[] expresionSeparada=expresion.split(" ");
+        int longitud=expresionSeparada.length;
+        for (int i=0; i<longitud;i++){
+            try{
+                sv.push(Double.parseDouble(expresionSeparada[i]));
+                
+            }catch(Exception e){
+                if(expresionSeparada[i].equals("+")){
+                    double num2=sv.pop();
+                    double num1=sv.pop();
+                    double resultante = num1+num2;
+                    sv.push(resultante);
+                }else if(expresionSeparada[i].equals("*")){
+                    double num2=sv.pop();
+                    double num1=sv.pop();
+                    double resultante = num1*num2;
+                    sv.push(resultante);
+                }else if(expresionSeparada[i].equals("-")){
+                    double num2=sv.pop();
+                    double num1=sv.pop();
+                    double resultante = num1-num2;
+                    sv.push(resultante);
+                }else if(expresionSeparada[i].equals("/")){
+                    double num2=sv.pop();
+                    double num1=sv.pop();
+                    double resultante = num1/num2;
+                    sv.push(resultante);
+                }
+            }
+        }
         double num =0.0;
         return num;
     }
