@@ -58,7 +58,6 @@ public class Calculos implements calculadora{
                 }
             }
         }
-        double num =0.0;
-        return num;
+        return sv.pop();
     }
 }
