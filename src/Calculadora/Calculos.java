@@ -19,27 +19,38 @@ public class Calculos implements calculadora{
     {
         String[] expresionSeparada=expresion.split(" ");
         int longitud=expresionSeparada.length;
-        for (int i=0; i<longitud;i++){
-            try{
+        for (int i=0; i<longitud;i++)
+        {
+            try
+            {
                 sv.push(Double.parseDouble(expresionSeparada[i]));
                 
-            }catch(Exception e){
-                if(expresionSeparada[i].equals("+")){
+            }
+            catch(Exception e)
+            {
+                if(expresionSeparada[i].equals("+"))
+                {
                     double num2=sv.pop();
                     double num1=sv.pop();
                     double resultante = num1+num2;
                     sv.push(resultante);
-                }else if(expresionSeparada[i].equals("*")){
+                }
+                else if(expresionSeparada[i].equals("*"))
+                {
                     double num2=sv.pop();
                     double num1=sv.pop();
                     double resultante = num1*num2;
                     sv.push(resultante);
-                }else if(expresionSeparada[i].equals("-")){
+                }
+                else if(expresionSeparada[i].equals("-"))
+                {
                     double num2=sv.pop();
                     double num1=sv.pop();
                     double resultante = num1-num2;
                     sv.push(resultante);
-                }else if(expresionSeparada[i].equals("/")){
+                }
+                else if(expresionSeparada[i].equals("/"))
+                {
                     double num2=sv.pop();
                     double num1=sv.pop();
                     double resultante = num1/num2;
