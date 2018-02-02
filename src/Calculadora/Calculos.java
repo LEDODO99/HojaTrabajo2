@@ -17,7 +17,7 @@ public class Calculos implements calculadora{
     @Override
     public double operar(String expresion)
     {
-        String[] expresionSeparada=expresion.split(" ");
+        String[] expresionSeparada=expresion.split("");
         int longitud=expresionSeparada.length;
         for (int i=0; i<longitud;i++)
         {
@@ -50,10 +50,17 @@ public class Calculos implements calculadora{
                 }
                 else if(expresionSeparada[i].equals("/"))
                 {
+                    if (sv.size()>1)
+                    {
                         double num2=sv.pop();
                         double num1=sv.pop();
+                        if(num2==0)
+                        {
+                            return Double.NaN;
+                        }
                         double resultante = num1/num2;
                         sv.push(resultante);
+                    }
                 }
             }
         }

@@ -36,7 +36,14 @@ public class Principal {
                 line = br.readLine();
             }
             String everything = sb.toString();
-                System.out.println(calc.operar(everything));
+            if (Double.isNaN(calc.operar(everything)))
+            {
+                System.out.println("MATH ERROR. Se realizo una division por 0.");
+            }
+            else
+            {
+                System.out.println(calc.operar(everything));                
+            }
             
         } 
         finally 
