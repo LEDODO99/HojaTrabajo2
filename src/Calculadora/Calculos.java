@@ -29,31 +29,47 @@ public class Calculos implements calculadora{
             {
                 if(expresionSeparada[i].equals("+"))
                 {
+                    if (sv.size()>1){
                     double num2=sv.pop();
                     double num1=sv.pop();
                     double resultante = num1+num2;
                     sv.push(resultante);
+                    }else{
+                        return Double.NaN;
+                    }
                 }
                 else if(expresionSeparada[i].equals("*"))
                 {
+                    if (sv.size()>1){
                     double num2=sv.pop();
                     double num1=sv.pop();
                     double resultante = num1*num2;
                     sv.push(resultante);
+                    }else{
+                        return Double.NaN;
+                    }
                 }
                 else if(expresionSeparada[i].equals("-"))
                 {
+                    if (sv.size()>1){
                     double num2=sv.pop();
                     double num1=sv.pop();
                     double resultante = num1-num2;
                     sv.push(resultante);
+                    }else{
+                        return Double.NaN;
+                    }
                 }
                 else if(expresionSeparada[i].equals("/"))
                 {
+                    if (sv.size()>1){
                     double num2=sv.pop();
                     double num1=sv.pop();
                     double resultante = num1/num2;
                     sv.push(resultante);
+                    }else{
+                        return Double.NaN;
+                    }
                 }else{
                     return Double.NaN;
                 }
