@@ -29,46 +29,35 @@ public class Calculos implements calculadora{
             {
                 if(expresionSeparada[i].equals("+"))
                 {
-                    double num2=sv.pop();
-                    double num1=sv.pop();
-                    double resultante = num1+num2;
-                    sv.push(resultante);
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        double resultante = num1+num2;
+                        sv.push(resultante);
                 }
                 else if(expresionSeparada[i].equals("*"))
                 {
-                    double num2=sv.pop();
-                    double num1=sv.pop();
-                    double resultante = num1*num2;
-                    sv.push(resultante);
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        double resultante = num1*num2;
+                        sv.push(resultante);
                 }
                 else if(expresionSeparada[i].equals("-"))
                 {
-                    double num2=sv.pop();
-                    double num1=sv.pop();
-                    double resultante = num1-num2;
-                    sv.push(resultante);
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        double resultante = num1-num2;
+                        sv.push(resultante);
                 }
                 else if(expresionSeparada[i].equals("/"))
                 {
-                    double num2=sv.pop();
-                    double num1=sv.pop();
-                    double resultante = num1/num2;
-                    sv.push(resultante);
-                }
-                else
-                {
-                    return Double.NaN;
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        double resultante = num1/num2;
+                        sv.push(resultante);
                 }
             }
         }
-        if (sv.size()>1)
-        {
-            return Double.NaN;
-        }
-        else
-        {
             return sv.pop();
-        }
     }
 }
 
