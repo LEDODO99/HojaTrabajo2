@@ -36,7 +36,15 @@ public class Principal {
                 line = br.readLine();
             }
             String everything = sb.toString();
-            System.out.println(calc.operar(everything));
+            if (Double.isNaN(calc.operar(everything)))
+            {
+                System.out.println("Se ha realizado una división dentro de 0, lo cual no es matemáticamente válido.");
+            }
+            else
+            {
+                System.out.println(calc.operar(everything));
+            }
+            
         } 
         finally 
         {
