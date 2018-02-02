@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pruebas;
+package Calculadora;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,11 +14,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author ledod
+ * @author anahernandez
  */
-public class Test1 {
+public class CalculosTest {
     
-    public Test1() {
+    public CalculosTest() {
     }
     
     @BeforeClass
@@ -37,9 +37,19 @@ public class Test1 {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    /**
+     * Test of operar method, of class Calculos.
+     */
+    @Test
+    public void testOperar() {
+        System.out.println("operar");
+        String expresion = "";
+        Calculos instance = new Calculos();
+        double expResult = 0.0;
+        double result = instance.operar(expresion);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
 }
