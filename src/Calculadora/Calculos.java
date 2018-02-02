@@ -24,7 +24,6 @@ public class Calculos implements calculadora{
             try
             {
                 sv.push(Double.parseDouble(expresionSeparada[i]));
-                
             }
             catch(Exception e)
             {
