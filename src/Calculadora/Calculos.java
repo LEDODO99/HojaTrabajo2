@@ -41,10 +41,10 @@ public class Calculos implements calculadora{
                 else if(expresionSeparada[i].equals("*"))
                 {
                     if (sv.size()>1){
-                    double num2=sv.pop();
-                    double num1=sv.pop();
-                    double resultante = num1*num2;
-                    sv.push(resultante);
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        double resultante = num1*num2;
+                        sv.push(resultante);
                     }else{
                         return Double.NaN;
                     }
@@ -52,10 +52,10 @@ public class Calculos implements calculadora{
                 else if(expresionSeparada[i].equals("-"))
                 {
                     if (sv.size()>1){
-                    double num2=sv.pop();
-                    double num1=sv.pop();
-                    double resultante = num1-num2;
-                    sv.push(resultante);
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        double resultante = num1-num2;
+                        sv.push(resultante);
                     }else{
                         return Double.NaN;
                     }
@@ -63,13 +63,13 @@ public class Calculos implements calculadora{
                 else if(expresionSeparada[i].equals("/"))
                 {
                     if (sv.size()>1){
-                    double num2=sv.pop();
-                    double num1=sv.pop();
-                    if(num2==0){
-                        return Double.NaN;
-                    }
-                    double resultante = num1/num2;
-                    sv.push(resultante);
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        if(num2==0){
+                            return Double.NaN;
+                        }
+                        double resultante = num1/num2;
+                        sv.push(resultante);
                     }else{
                         return Double.NaN;
                     }
