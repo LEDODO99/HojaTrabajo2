@@ -54,14 +54,19 @@ public class Calculos implements calculadora{
                     double num1=sv.pop();
                     double resultante = num1/num2;
                     sv.push(resultante);
-                }else{
+                }
+                else
+                {
                     return Double.NaN;
                 }
             }
         }
-        if (sv.size()>1){
+        if (sv.size()>1)
+        {
             return Double.NaN;
-        }else{
+        }
+        else
+        {
             return sv.pop();
         }
     }
