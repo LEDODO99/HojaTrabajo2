@@ -29,24 +29,45 @@ public class Calculos implements calculadora{
             {
                 if(expresionSeparada[i].equals("+"))
                 {
+                    if (sv.size() > 1)
+                    {
                         double num2=sv.pop();
                         double num1=sv.pop();
                         double resultante = num1+num2;
                         sv.push(resultante);
+                    }
+                    else
+                    {
+                        return Double.NaN;
+                    }
                 }
                 else if(expresionSeparada[i].equals("*"))
                 {
+                    if (sv.size() > 1)
+                    {
                         double num2=sv.pop();
                         double num1=sv.pop();
                         double resultante = num1*num2;
                         sv.push(resultante);
+                    }
+                    else
+                    {
+                        return Double.NaN;
+                    }
                 }
                 else if(expresionSeparada[i].equals("-"))
                 {
+                    if (sv.size() > 1)
+                    {
                         double num2=sv.pop();
                         double num1=sv.pop();
                         double resultante = num1-num2;
                         sv.push(resultante);
+                        }
+                    else
+                    {
+                        return Double.NaN;
+                    }
                 }
                 else if(expresionSeparada[i].equals("/"))
                 {
@@ -54,12 +75,15 @@ public class Calculos implements calculadora{
                     {
                         double num2=sv.pop();
                         double num1=sv.pop();
-                        if(num2==0)
-                        {
+                        if(num2==0){
                             return Double.NaN;
                         }
                         double resultante = num1/num2;
                         sv.push(resultante);
+                    }
+                    else
+                    {
+                        return Double.NaN;
                     }
                 }
             }
