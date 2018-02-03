@@ -8,73 +8,96 @@
 package Calculadora;
 
 public class Calculos implements calculadora{
-    StackVector<Double> x = new StackVector<Double>();
-    double d2;
-    double d3 = Double.NaN;
-    double n1,n2;
+    private StackVector<Double> sv;
     
-    @Override
-    public double operar(String expresion) 
-    {       
-       if(expresion.length()<=3){
-           x.push(Double.NaN);
-       }else{
-        for(int i=0;i<expresion.length();i++)
-        {
-            
-            try
-            {
-               
-               double d1 =  Double.parseDouble(Character.toString(expresion.charAt(i)));    
-               x.push(d1);
-                
-           }catch(Exception e)
-           {
-               switch (expresion.charAt(i)) 
-               {
-                    case '+':
-                       n1=x.pop();
-                       n2=x.pop();
-                       d2 =  n2+n1;
-                       x.push(d2);            
-                       break;
-                       
-                   case '-':
-                       n1=x.pop();
-                       n2=x.pop();
-                       d2 =  n2-n1;
-                       x.push(d2);            
-                       break;
-                          
-                       
-                    case '*':
-                       n1=x.pop();
-                       n2=x.pop();
-                       d2 =  n2*n1;
-                       x.push(d2);            
-                       break; 
-                    
-                       
-                    case '/':
-                       n1=x.pop();
-                       n2=x.pop();
-                       if (n1==0) 
-                        {
-                            d2=d3;                            
-                        }
-                        else
-                        {
-                            d2=n2/n1;
-                        }
-                       x.push(d2);            
-                       break;   
-                }
-            }
-            }
-        
-       }
-        return x.pop();
-       }
+    /**
+     * Constructor de la clase
+     */
+    public Calculos()
+    {
+        sv = new StackVector<>();
     }
     
-
+    /**
+     * 
+     * @param expresion: String que contiene todos los numerandos y operaciones que se quieren realizar
+     * @return el resultado de operar todo lo que dice el string 
+     */
+    @Override
+    public double operar(String expresion)
+    {
+        String[] expresionSeparada=expresion.split("");
+        int longitud=expresionSeparada.length;
+        for (int i=0; i<longitud;i++)
+        {
+            try
+            {
+                sv.push(Double.parseDouble(expresionSeparada[i]));
+            }
+            catch(Exception e)
+            {
+                if(expresionSeparada[i].equals("+"))
+                {
+                    if (sv.size() > 1) //Esto se hace para ver si ya se tiene un numerando con el cual trabajar
+                    { //para evitar errores cuando se ingresen dos operandos consecutivos, por ejemplo.
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        double resultante = num1+num2;
+                        sv.push(resultante);
+                    }
+                    else
+                    {
+                        return Double.NaN;
+                    }
+                }
+                else if(expresionSeparada[i].equals("*"))
+                {
+                    if (sv.size() > 1)
+                    {
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        double resultante = num1*num2;
+                        sv.push(resultante);
+                    }
+                    else
+                    {
+                        return Double.NaN;
+                    }
+                }
+                else if(expresionSeparada[i].equals("-"))
+                {
+                    if (sv.size()>1)
+                    {
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        double resultante = num1-num2;
+                        sv.push(resultante);
+                    }
+                    else
+                    {
+                        return Double.NaN;
+                    }
+                }
+                else if(expresionSeparada[i].equals("/"))
+                {
+                    if (sv.size()>1)
+                    {
+                        double num2=sv.pop();
+                        double num1=sv.pop();
+                        if(num2==0)
+                        {
+                            return Double.NaN;
+                        }
+                        double resultante = num1/num2;
+                        sv.push(resultante);
+                    }
+                    else
+                    {
+                        return Double.NaN;
+                    }
+                }
+            }
+        }
+            return sv.pop();
+    }
+}
