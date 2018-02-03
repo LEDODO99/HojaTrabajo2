@@ -16,4 +16,6 @@ public interface calculadora<E>{
      * @return el resultado de operar todo lo que dice el string 
      */
     public double operar(String expresion);
+    // pre: 
+   // post: se devuelve el último número al cual se le hizo push al stack, el cual es el resultado final de la operación.
 }
