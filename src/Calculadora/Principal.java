@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class Principal {
     public static void main(String args[]) throws FileNotFoundException, IOException
     {
-        System.out.println("Ingrese la direccion o el nombre del documento .txt: ");
+        System.out.println("Ingrese la direccion o el nombre del documento .txt (en el caso está en la misma carpeta que el programa): ");
         Scanner teclado = new Scanner(System.in);
         String file = teclado.nextLine();
         BufferedReader br = new BufferedReader(new FileReader(file));

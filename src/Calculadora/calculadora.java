@@ -10,6 +10,10 @@ package Calculadora;
  * @author Ana Lucía Hernández 17138. Luis Delgado 17187.
  */
 public interface calculadora<E>{
-    
+    /**
+     * 
+     * @param expresion: String que contiene todos los numerandos y operaciones que se quieren realizar
+     * @return el resultado de operar todo lo que dice el string 
+     */
     public double operar(String expresion);
 }

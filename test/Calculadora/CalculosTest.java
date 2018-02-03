@@ -12,9 +12,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 /**
  *
- * @author anahernandez
+ * @author Ana Lucía Hernández 17138. Luis Delgado 17187.
  */
 public class CalculosTest {
     
@@ -43,13 +44,15 @@ public class CalculosTest {
     @Test
     public void testOperar() {
         System.out.println("operar");
-        String expresion = "";
+        String expresion = "3 4 + 6 5 * - 2 /";
         Calculos instance = new Calculos();
-        double expResult = 0.0;
+        double expResult = -11.5;
         double result = instance.operar(expresion);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (result != expResult)
+        {
+            fail("La prueba ha fallado.");
+        }
     }
     
 }

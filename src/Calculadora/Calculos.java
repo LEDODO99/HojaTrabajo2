@@ -8,87 +8,73 @@
 package Calculadora;
 
 public class Calculos implements calculadora{
-    private StackVector<Double> sv;
+    StackVector<Double> x = new StackVector<Double>();
+    double d2;
+    double d3 = Double.NaN;
+    double n1,n2;
     
-    public Calculos()
-    {
-        sv = new StackVector<>();
-    }
     @Override
-    public double operar(String expresion)
-    {
-        String[] expresionSeparada=expresion.split("");
-        int longitud=expresionSeparada.length;
-        for (int i=0; i<longitud;i++)
+    public double operar(String expresion) 
+    {       
+       if(expresion.length()<=3){
+           x.push(Double.NaN);
+       }else{
+        for(int i=0;i<expresion.length();i++)
         {
+            
             try
             {
-                sv.push(Double.parseDouble(expresionSeparada[i]));
-            }
-            catch(Exception e)
-            {
-                if(expresionSeparada[i].equals("+"))
-                {
-                    if (sv.size() > 1)
-                    {
-                        double num2=sv.pop();
-                        double num1=sv.pop();
-                        double resultante = num1+num2;
-                        sv.push(resultante);
-                    }
-                    else
-                    {
-                        return Double.NaN;
-                    }
-                }
-                else if(expresionSeparada[i].equals("*"))
-                {
-                    if (sv.size() > 1)
-                    {
-                        double num2=sv.pop();
-                        double num1=sv.pop();
-                        double resultante = num1*num2;
-                        sv.push(resultante);
-                    }
-                    else
-                    {
-                        return Double.NaN;
-                    }
-                }
-                else if(expresionSeparada[i].equals("-"))
-                {
-                    if (sv.size()>1)
-                    {
-                        double num2=sv.pop();
-                        double num1=sv.pop();
-                        double resultante = num1-num2;
-                        sv.push(resultante);
-                    }
-                    else
-                    {
-                        return Double.NaN;
-                    }
-                }
-                else if(expresionSeparada[i].equals("/"))
-                {
-                    if (sv.size()>1)
-                    {
-                        double num2=sv.pop();
-                        double num1=sv.pop();
-                        if(num2==0)
+               
+               double d1 =  Double.parseDouble(Character.toString(expresion.charAt(i)));    
+               x.push(d1);
+                
+           }catch(Exception e)
+           {
+               switch (expresion.charAt(i)) 
+               {
+                    case '+':
+                       n1=x.pop();
+                       n2=x.pop();
+                       d2 =  n2+n1;
+                       x.push(d2);            
+                       break;
+                       
+                   case '-':
+                       n1=x.pop();
+                       n2=x.pop();
+                       d2 =  n2-n1;
+                       x.push(d2);            
+                       break;
+                          
+                       
+                    case '*':
+                       n1=x.pop();
+                       n2=x.pop();
+                       d2 =  n2*n1;
+                       x.push(d2);            
+                       break; 
+                    
+                       
+                    case '/':
+                       n1=x.pop();
+                       n2=x.pop();
+                       if (n1==0) 
                         {
-                            return Double.NaN;
+                            d2=d3;                            
                         }
-                        double resultante = num1/num2;
-                        sv.push(resultante);
-                    }
-                    else
-                    {
-                        return Double.NaN;
-                    }
+                        else
+                        {
+                            d2=n2/n1;
+                        }
+                       x.push(d2);            
+                       break;   
                 }
             }
-        }
-            return sv.pop();
+            }
+        
+       }
+        return x.pop();
+       }
     }
-}
+    
+
