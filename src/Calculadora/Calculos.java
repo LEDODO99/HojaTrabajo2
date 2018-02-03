@@ -5,7 +5,7 @@
  */
 
 
-//package Calculadora;
+package Calculadora;
 
 public class Calculos implements calculadora{
     private StackVector<Double> sv;
@@ -98,6 +98,6 @@ public class Calculos implements calculadora{
                 }
             }
         }
-            return sv.pop();
+            return sv.peek();
     }
 }
